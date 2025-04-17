@@ -11,7 +11,7 @@ Spezialisierte Funktionen für die Verwaltung der Performance-Optionen.
 """
 
 from typing import Dict, Any, List
-from ..config.settings import CMD_SET_MOTION_SYNC, CMD_SET_LIFTOFF, LIFT_OFF_DISTANCE
+from src.config.settings import CMD_SET_MOTION_SYNC, CMD_SET_LIFTOFF, LIFT_OFF_DISTANCE
 
 def create_motion_sync_command(enabled: bool) -> List[int]:
     """
