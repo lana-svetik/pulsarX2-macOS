@@ -11,7 +11,7 @@ Spezialisierte Funktionen für die Verwaltung der Energiesparoptionen.
 """
 
 from typing import Dict, Any, List, Optional
-from ..config.settings import CMD_SET_POWER
+from src.config.settings import CMD_SET_POWER
 
 def create_power_saving_command(idle_time: int, low_battery_threshold: Optional[int] = None) -> List[int]:
     """
