@@ -10,7 +10,7 @@ Spezialisierte Funktionen für die Verwaltung der DPI-Einstellungen.
 """
 
 from typing import Dict, Any, List, Optional
-from ..config.settings import CMD_SET_DPI, MAX_DPI
+from src.config.settings import CMD_SET_DPI, MAX_DPI
 
 def create_dpi_command(dpi: int, stage: int = 1) -> List[int]:
     """
