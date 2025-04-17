@@ -45,7 +45,7 @@ pip install -e .
 ### Interaktiver Modus
 
 ```bash
-sudo pulsar-x2-config
+sudo pulsarX2-macOS
 ```
 
 ### Kommandozeilenparameter
