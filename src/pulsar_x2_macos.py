@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2025 Svetlana Sibiryakova
 # /src/pulsar_x2_macos.py
-# Setup-Script für die Installation des macOS-CLI für die Pulsar X2
+# Setup-Script für die Installation des macOS-CLI für Pulsar X2
 # Updated 2025-04-17
 
 """
-Hauptmodul für das macOS-CLI für die Pulsar X2.
+Hauptmodul für das macOS-CLI für Pulsar X2.
 Verarbeitet Kommandozeilenparameter und startet die entsprechenden Funktionen.
 """
 
