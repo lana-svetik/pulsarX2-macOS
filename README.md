@@ -1,6 +1,6 @@
 # macOS-CLI für Pulsar X2
 
-Ein Kommandozeilentool zur Konfiguration der Gaming-Maus Pulsar X2 unter macOS.
+Ein Kommandozeilentool zur Konfiguration der Gaming-Maus Pulsar X2 unter macOS. Erstellt unter Anleitung von Claude 3.7 Sonnet.
 
 ## Beschreibung
 
