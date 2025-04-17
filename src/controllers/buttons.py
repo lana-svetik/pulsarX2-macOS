@@ -11,7 +11,7 @@ Spezialisierte Funktionen für die Verwaltung der Tastenbelegung.
 """
 
 from typing import Dict, Any, List, Optional
-from ..config.settings import CMD_SET_BUTTON, BUTTON_ACTIONS
+from src.config.settings import CMD_SET_BUTTON, BUTTON_ACTIONS
 
 def create_button_command(button: int, action_name: str) -> Optional[List[int]]:
     """
