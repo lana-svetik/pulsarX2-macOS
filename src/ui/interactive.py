@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2025 Svetlana Sibiryakova
 # /src/ui/interactive.py
-# Interaktive Kommandozeilenschnittstelle für das macOS-CLI für die Pulsar X2
+# Interaktive Kommandozeilenschnittstelle für das macOS-CLI für Pulsar X2
 # Updated 2025-04-17
 
 """
-Interaktive Kommandozeilenschnittstelle für das macOS-CLI für die Pulsar X2.
+Interaktive Kommandozeilenschnittstelle für das macOS-CLI für Pulsar X2.
 Ermöglicht die Konfiguration der Maus über ein Menüsystem.
 """
 
