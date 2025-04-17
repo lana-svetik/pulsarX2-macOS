@@ -7,7 +7,7 @@
 # Updated 2025-04-17
 
 """
-Setup-Script für die Installation des Pulsar X2 V3 macOS Konfigurationstool.
+Setup-Script für die Installation des macOS-CLI für die Pulsar X2.
 """
 
 from setuptools import setup, find_packages
