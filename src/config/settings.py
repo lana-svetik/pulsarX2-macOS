@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2025 Svetlana Sibiryakova
 # /src/config/settings.py
-# Konstanten und Einstellungen für das macOS-CLI für Pulsar X2
+# Konstanten und Einstellungen für Pulsar X2
 # Updated 2025-04-17
 """
 Konstanten und Einstellungen für Pulsar X2.
