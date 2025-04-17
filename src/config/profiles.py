@@ -4,6 +4,7 @@
 # /src/config/profiles.py
 # Funktionen zur Verwaltung von Profilen für Pulsar X2
 # Updated 2025-04-17
+
 """
 Funktionen zur Verwaltung von Profilen für Pulsar X2.
 Bietet Funktionen zum Laden, Speichern und Erstellen von Konfigurationsprofilen.
