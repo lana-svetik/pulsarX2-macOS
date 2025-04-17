@@ -4,6 +4,7 @@
 # /src/controllers/dpi.py
 # DPI-Controller für Pulsar X2
 # Updated 2025-04-17
+
 """
 DPI-Controller für Pulsar X2.
 Spezialisierte Funktionen für die Verwaltung der DPI-Einstellungen.

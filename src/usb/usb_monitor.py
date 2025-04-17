@@ -4,6 +4,7 @@
 # /src/usb/usb_monitor.py
 # USB-Monitor für das Reverse-Engineering der Pulsar X2
 # Updated 2025-04-17
+
 """
 USB-Monitor für das Reverse Engineering der Pulsar X2.
 Überwacht die USB-Kommunikation und protokolliert Befehle und Antworten.

@@ -25,7 +25,7 @@ from ..config.profiles import load_config, save_config, print_profile_settings
 
 class PulsarMouse:
     """
-    Hauptklasse für die Kommunikation mit der Pulsar X2 V3 Maus über USB.
+    Hauptklasse für die Kommunikation mit Pulsar über USB.
     Stellt Methoden für alle Mauseinstellungen bereit.
     """
     def __init__(self, debug_mode=False):
@@ -53,34 +53,49 @@ class PulsarMouse:
     def connect(self) -> bool:
         """
         Verbindung zur Maus herstellen
-        
+    
         Returns:
             bool: True bei erfolgreicher Verbindung, sonst False
         """
         try:
             # Maus anhand von Vendor- und Product-ID finden
             self.device = usb.core.find(idVendor=VENDOR_ID, idProduct=PRODUCT_ID)
-            
+        
             if self.device is None:
-                print("Pulsar X2 V3 Maus nicht gefunden.")
+                print("Pulsar X2 nicht gefunden.")
                 print("Stellen Sie sicher, dass die Maus angeschlossen ist.")
                 return False
-            
-            # Falls die Maus von einem Kernel-Treiber verwendet wird, diesen lösen
-            if self.device.is_kernel_driver_active(0):
-                try:
-                    self.device.detach_kernel_driver(0)
-                    print("Kernel-Treiber getrennt")
-                except Exception as e:
-                    print(f"Warnung: Konnte Kernel-Treiber nicht trennen: {e}")
-            
+        
+            # macOS-spezifische Prüfung für den Kernel-Treiber
+            try:
+                # Falls die Maus von einem Kernel-Treiber verwendet wird, diesen lösen
+                if self.device.is_kernel_driver_active(0):
+                    try:
+                        self.device.detach_kernel_driver(0)
+                        print("Kernel-Treiber getrennt")
+                    except usb.core.USBError as e:
+                        # Unter macOS ist dies möglicherweise gar nicht nötig
+                        print(f"Hinweis: Konnte Kernel-Treiber nicht trennen: {e}")
+                        # Trotzdem fortfahren, da macOS oft keinen Treiber zu trennen hat
+            except (AttributeError, NotImplementedError):
+                # Manche macOS-Versionen unterstützen is_kernel_driver_active nicht
+                print("Hinweis: Kernel-Treiber-Status konnte nicht geprüft werden (typisch für macOS)")
+        
             # Konfiguration einrichten
-            self.device.set_configuration()
-            print(f"Verbindung zu Pulsar {MODEL_NAME} hergestellt.")
+            try:
+                self.device.set_configuration()
+                print(f"Verbindung zu Pulsar {MODEL_NAME} hergestellt.")
             
-            # Endpunkte für die Kommunikation finden
-            self._find_endpoints()
-            return True
+                # Endpunkte für die Kommunikation finden
+                self._find_endpoints()
+                return True
+            except usb.core.USBError as e:
+                if "Entity not found" in str(e):
+                    print(f"Fehler: USB-Gerät konnte nicht konfiguriert werden. Möglicherweise fehlen Berechtigungen.")
+                    print("Versuchen Sie, das Programm mit 'sudo' auszuführen.")
+                else:
+                    print(f"Fehler bei der Konfiguration des Geräts: {e}")
+                return False
             
         except Exception as e:
             print(f"Fehler beim Verbinden mit der Maus: {e}")
@@ -90,27 +105,36 @@ class PulsarMouse:
         """Findet die IN- und OUT-Endpunkte für die Kommunikation"""
         try:
             cfg = self.device.get_active_configuration()
-            intf = cfg[(0, 0)]  # Interface 0, Alternative Setting 0
-            
+        
+            # Manchmal braucht man auf macOS einen anderen Ansatz für die Interface-Auswahl
+            try:
+                intf = cfg[(0, 0)]  # Interface 0, Alternative Setting 0
+            except (IndexError, KeyError, TypeError):
+                # Alternatives Vorgehen, falls die obige Methode fehlschlägt
+                for interface in cfg:
+                    intf = interface
+                    break
+        
             # Endpunkt für Datenempfang (von Maus zum Computer)
             self.ep_in = usb.util.find_descriptor(
                 intf,
                 custom_match=lambda e: usb.util.endpoint_direction(e.bEndpointAddress) == usb.util.ENDPOINT_IN
             )
-            
+        
             # Endpunkt für Datenübertragung (vom Computer zur Maus)
             self.ep_out = usb.util.find_descriptor(
                 intf,
                 custom_match=lambda e: usb.util.endpoint_direction(e.bEndpointAddress) == usb.util.ENDPOINT_OUT
             )
-            
+        
             if not self.ep_in or not self.ep_out:
                 raise ValueError("Konnte Endpunkte für Datenübertragung nicht finden")
-                
-            print(f"Endpunkte gefunden - IN: 0x{self.ep_in.bEndpointAddress:02x}, OUT: 0x{self.ep_out.bEndpointAddress:02x}")
             
+            print(f"Endpunkte gefunden - IN: 0x{self.ep_in.bEndpointAddress:02x}, OUT: 0x{self.ep_out.bEndpointAddress:02x}")
+        
         except Exception as e:
             print(f"Fehler beim Finden der Endpunkte: {e}")
+            print("Dies könnte an fehlenden Berechtigungen oder einem inkompatiblen USB-Treiber liegen.")
             raise
     
     def send_command(self, command: List[int], expect_response=True, timeout=300):
