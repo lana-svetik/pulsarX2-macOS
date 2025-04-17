@@ -4,6 +4,7 @@
 # /src/controllers/polling.py
 # Polling-Rate-Controller für Pulsar X2
 # Updated 2025-04-17
+
 """
 Polling-Rate-Controller für Pulsar X2.
 Spezialisierte Funktionen für die Verwaltung der Polling-Rate.

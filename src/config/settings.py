@@ -13,7 +13,7 @@ Enthält USB-IDs, DPI-Bereiche, Polling-Raten und weitere Konfigurationswerte.
 import os
 from typing import Dict, List, Tuple, Any
 
-# USB-IDs für die Pulsar X2 V3 Maus
+# USB-IDs für Pulsar X2
 VENDOR_ID = 0x3710  # Pulsar Vendor ID
 PRODUCT_ID = 0x5402  # Produkt ID für 1K-Dongle; 0x5406 für 8K-Dongle
 
@@ -51,7 +51,7 @@ BUTTON_ACTIONS = {
 
 # Standardpfad für Konfigurationsdateien
 CONFIG_DIR = os.path.expanduser("~/.config/pulsar")
-CONFIG_FILE = os.path.join(CONFIG_DIR, "pulsar_x2_v3_config.json")
+CONFIG_FILE = os.path.join(CONFIG_DIR, "pulsar_x2_config.json")
 
 # USB-Kommunikationsprotokolle (hypothetisch - muss angepasst werden)
 # Diese Befehlsstrukturen wurden nicht reverse-engineered und sind nur als Vorlage

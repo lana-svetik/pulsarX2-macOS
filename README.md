@@ -109,9 +109,16 @@ Das Projekt ist modular aufgebaut und besteht aus den folgenden Komponenten:
 
 ## Fehlerbehebung
 
-1. **Maus wird nicht erkannt**: Stellen Sie sicher, dass die Maus angeschlossen ist und die richtigen USB-IDs hat (Vendor ID: 0x3710, Product ID: 0x5402 für 1K oder 0x5406 für 8K-Dongle).
+1. **Maus wird nicht erkannt**: Stellen Sie sicher, dass die Maus angeschlossen ist und die richtigen USB-IDs hat (Vendor ID: `0x3710`, Product ID: `0x5402` für 1K oder `0x5406` für 8K-Dongle).
 2. **Keine Änderung der Einstellungen**: Prüfen Sie, ob das Tool mit Root-Rechten ausgeführt wird (`sudo`).
 3. **USB-Fehler**: Verwenden Sie den USB-Monitor, um die Kommunikation zu debuggen und Probleme zu identifizieren.
+4. **Berechtigungsprobleme auf neueren macOS-Versionen**: 
+   - Seit macOS 10.15 (Catalina) benötigen USB-Geräte spezielle Berechtigungen.
+   - Navigieren Sie zu `Systemeinstellungen > Sicherheit & Datenschutz > Privatsphäre > Eingabehilfen` und fügen Sie `Terminal` hinzu.
+   - Bei der ersten Verbindung könnte eine Berechtigungsanfrage erscheinen, die genehmigt werden muss.
+5. **"Entity not found"**:
+   - Dies deutet auf ein Berechtigungsproblem hin. Führen Sie das Tool mit `sudo` aus.
+   - Wenn das Problem bestehen bleibt, starten Sie Ihren Mac neu und versuchen Sie es erneut.
 
 ## Lizenz
 
