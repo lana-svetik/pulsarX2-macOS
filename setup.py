@@ -3,11 +3,11 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2025 Svetlana Sibiryakova
 # /setup.py
-# Setup-Script für die Installation des macOS-CLI für die Pulsar X2
+# Setup-Script für die Installation des macOS-CLI für Pulsar X2
 # Updated 2025-04-17
 
 """
-Setup-Script für die Installation des macOS-CLI für die Pulsar X2.
+Setup-Script für die Installation des macOS-CLI für Pulsar X2.
 """
 
 from setuptools import setup, find_packages
