@@ -4,6 +4,7 @@
 # /src/config/settings.py
 # Konstanten und Einstellungen für Pulsar X2
 # Updated 2025-04-17
+
 """
 Konstanten und Einstellungen für Pulsar X2.
 Enthält USB-IDs, DPI-Bereiche, Polling-Raten und weitere Konfigurationswerte.
