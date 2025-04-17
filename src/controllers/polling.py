@@ -10,7 +10,7 @@ Spezialisierte Funktionen für die Verwaltung der Polling-Rate.
 """
 
 from typing import Dict, Any, List
-from ..config.settings import CMD_SET_POLLING, POLLING_RATES
+from src.config.settings import CMD_SET_POLLING, POLLING_RATES
 
 def create_polling_rate_command(rate: int) -> List[int]:
     """
