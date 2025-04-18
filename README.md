@@ -16,7 +16,6 @@ Da die offizielle Pulsar-Software nur für Windows verfügbar ist, ermöglicht d
 - Motion Sync und andere Performanceoptionen
 - Energiesparoptionen für den kabellosen Betrieb
 - Speichern und Laden von Profilen
-- Diagnostiktool für Reverse Engineering
 
 ## Installation
 
