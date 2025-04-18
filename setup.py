@@ -13,7 +13,7 @@ Setup-Script für die Installation des macOS-CLI für Pulsar X2.
 from setuptools import setup, find_packages
 
 setup(
-    name="pulsarX2-macOS",
+    name="pulsarX2-macOS-cli",
     version="1.0.0",
     description="Pulsar X2 CLI für macOS",
     author="Svetlana Sibiryakova",
@@ -23,7 +23,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'pulsarX2-macOS=src.pulsar_x2_macos:main',
+            'pulsarX2-macOS-cli=src.pulsar_x2_macos:main',
             'pulsar-usb-monitor=src.usb.usb_monitor:main',
         ],
     },
