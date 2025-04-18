@@ -28,5 +28,5 @@ pulsar-x2-config = "src.pulsar_x2_macos:main"
 pulsar-usb-monitor = "src.usb.usb_monitor:main"
 
 [project.urls]
-"Homepage" = "https://github.com/lana-svetik/pulsarX2-macOS"
-"Bug Tracker" = "https://github.com/lana-svetik/pulsarX2-macOS/issues"
+"Homepage" = "https://github.com/lana-svetik/pulsarX2-macOS-cli"
+"Bug Tracker" = "https://github.com/lana-svetik/pulsarX2-macOS-cli/issues"
