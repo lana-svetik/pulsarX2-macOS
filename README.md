@@ -29,14 +29,14 @@ Da die offizielle Pulsar-Software nur für Windows verfügbar ist, ermöglicht d
 ### Installation über pip
 
 ```bash
-pip install git+https://github.com/lana-svetik/pulsarX2-macOS.git
+pip install git+https://github.com/lana-svetik/pulsarX2-macOS-cli.git
 ```
 
 ### Installation aus dem Quellcode
 
 ```bash
-git clone https://github.com/lana-svetik/pulsarX2-macOS.git
-cd pulsarX2-macOS.git
+git clone https://github.com/lana-svetik/pulsarX2-macOS-cli.git
+cd pulsarX2-macOS-cli.git
 pip install -e .
 ```
 
